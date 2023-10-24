@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.css": "/projectOtus/static/css/main.4e54054b.css",
+    "main.js": "/projectOtus/static/js/main.49a2d967.js",
+    "static/media/cookiefactory.png": "/projectOtus/static/media/cookiefactory.4ae499e91b2cce510811.png",
+    "static/media/cockie.png": "/projectOtus/static/media/cockie.11e0bb755b07060e3c2c.png",
+    "static/media/granny.png": "/projectOtus/static/media/granny.d20c7bbf6713579a048c.png",
+    "static/media/grampa.png": "/projectOtus/static/media/grampa.b9886b16b562f1d796e5.png",
+    "static/media/clickvalue.png": "/projectOtus/static/media/clickvalue.88fb23b33b87e9722e69.png",
+    "static/media/bgBlue.jpg": "/projectOtus/static/media/bgBlue.f6fe8388db412c7daaf8.jpg",
+    "index.html": "/projectOtus/index.html",
+    "main.4e54054b.css.map": "/projectOtus/static/css/main.4e54054b.css.map",
+    "main.49a2d967.js.map": "/projectOtus/static/js/main.49a2d967.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.4e54054b.css",
+    "static/js/main.49a2d967.js"
+  ]
+}
