@@ -1,5 +1,5 @@
 {
-  "name": "cookie-cliker",
+  "name": "cookie-clicker",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -34,5 +34,12 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "keywords": [],
+  "description": "",
+  "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+    "@babel/preset-env": "^7.23.2",
+    "@babel/preset-react": "^7.22.15"
+  } 
 }
