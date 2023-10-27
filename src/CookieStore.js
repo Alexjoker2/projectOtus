@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import {Link} from 'react-router-dom';
 
 
 const CookieStore = ({ upgrades, handleAmmount, handleBuyX, buyX }) => {
@@ -35,9 +36,11 @@ const CookieStore = ({ upgrades, handleAmmount, handleBuyX, buyX }) => {
       <div>
         <ul>
           {upgrades.map((upgrade) => (
-            <li key={upgrade.id}>
+            <li key={upgrade.id}>          
               <div className="store-item-box">
+                <Link to={`/projectOtus/upgrade/${upgrade.id}`}>
                 {upgrade.id}
+                </Link>
                 <button
                   onClick={() => {
                     handleAmmount(upgrade.id, upgrade.price, buyX);
@@ -54,10 +57,9 @@ const CookieStore = ({ upgrades, handleAmmount, handleBuyX, buyX }) => {
             </li>
           ))}
         </ul>
-      </div>
+  </div>
     </div>
   );
 };
-
 
 export default CookieStore;

@@ -1,11 +1,16 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import App from './App';
+import { BrowserRouter as Router } from 'react-router-dom';
+import Homepages from './Homepages';
 
 test('Проверка наличия элементов', () => {
-  // Рендерим компонент App
-  render(<App />);
+  // Рендерим компонент Homepages
 
+  render(
+    <Router>
+    <Homepages />
+    </Router>
+  );
   // Проверяем наличие элементов с помощью селекторов классов
   expect(screen.getByText('Печенек: 0')).toBeInTheDocument();
   expect(screen.getByAltText('Печенье')).toBeInTheDocument();

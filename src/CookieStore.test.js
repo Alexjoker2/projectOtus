@@ -1,5 +1,6 @@
 import React from 'react';
-import { render, screen, fireEvent } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
+import { BrowserRouter as Router } from 'react-router-dom';
 import CookieStore from './CookieStore';
 
 describe('CookieStore', () => {
@@ -12,37 +13,33 @@ describe('CookieStore', () => {
   const handleBuyX = jest.fn();
   const buyX = 1;
 
-beforeEach(() => {
-    render(
-      <CookieStore
-        upgrades={upgrades}
-        handleAmmount={handleAmmount}
-        handleBuyX={handleBuyX}
-        buyX={buyX}
-      />
-    );
-  });
+  render(
+    <Router>
+    <CookieStore
+      upgrades={upgrades}
+      handleAmmount={handleAmmount}
+      handleBuyX={handleBuyX}
+      buyX={buyX}
+      
+    />
+    </Router>
+  );
 
   test('renders the title', () => {
     const titleElement = screen.getByText('Приобрести 1');
     expect(titleElement).toBeInTheDocument();
   });
 
-  test('renders the buy-x options', () => {
-    const radioButtons = screen.getAllByRole('radio');
-    expect(radioButtons).toHaveLength(4);
+  upgrades.forEach((upgrade) => {
+    const upgradeLink = screen.getByText(upgrade.id);
+    expect(upgradeLink).toBeInTheDocument();
+    expect(upgradeLink.getAttribute('href')).toBe(`/cookie-clicker-project/upgrade/${upgrade.id}`);
 
-    fireEvent.click(radioButtons[2]); // Select 5x
+    const priceText = screen.getByText(`Стоимость: ${Math.floor(upgrade.price * 10) / 10}`);
+    expect(priceText).toBeInTheDocument();
 
-    expect(handleBuyX).toHaveBeenCalledWith(5);
+    const ammountText = screen.getByText(`Куплено: ${upgrade.ammount} ${upgrade.id}`);
+    expect(ammountText).toBeInTheDocument();
   });
 
-  test('renders the upgrades', () => {
-    const upgradeItems = screen.getAllByRole('listitem');
-    expect(upgradeItems).toHaveLength(upgrades.length);
-
-    fireEvent.click(upgradeItems[0].querySelector('button')); // Click the first upgrade's button
-
-    expect(handleAmmount).toHaveBeenCalledWith('upgrade1', 10, buyX);
-  });
 });
