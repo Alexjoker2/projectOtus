@@ -33,7 +33,7 @@ describe('CookieStore', () => {
   upgrades.forEach((upgrade) => {
     const upgradeLink = screen.getByText(upgrade.id);
     expect(upgradeLink).toBeInTheDocument();
-    expect(upgradeLink.getAttribute('href')).toBe(`/cookie-clicker-project/upgrade/${upgrade.id}`);
+    expect(upgradeLink.getAttribute('href')).toBe(`/projectOtus/upgrade/${upgrade.id}`);
 
     const priceText = screen.getByText(`Стоимость: ${Math.floor(upgrade.price * 10) / 10}`);
     expect(priceText).toBeInTheDocument();
